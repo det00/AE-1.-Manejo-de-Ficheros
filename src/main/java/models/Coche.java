@@ -5,9 +5,8 @@ import lombok.*;
 import java.io.Serializable;
 
 @Getter
-@NoArgsConstructor
-@ToString
 @EqualsAndHashCode
+@NoArgsConstructor
 public class Coche implements Serializable {
 
     private static final long serialVersionUID = 334455L;
@@ -28,8 +27,6 @@ public class Coche implements Serializable {
         this.color = color;
     }
 
-    public Coche(Long id) {
-    }
 
     private String generarMatricula(){
         return contadorMatricula++ + "GHN";
@@ -37,5 +34,14 @@ public class Coche implements Serializable {
 
     private long generarId(){
         return contadorId++;
+    }
+
+    @Override
+    public String toString() {
+        return "\n\tID " + id + ":" +
+                "\n\tMARCA: " + marca +
+                "\n\tMODELO: " + modelo +
+                "\n\tCOLOR: " + color +
+                "\n\tMATRICULA: " + matricula;
     }
 }

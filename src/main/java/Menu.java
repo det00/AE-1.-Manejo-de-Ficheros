@@ -25,7 +25,8 @@ public class Menu {
                 * 2. Borrar coche por ID      *
                 * 3. Consultar coche por ID   *
                 * 4. Listado de coches        *
-                * 5. Salir                    *
+                * 5. Exportar CSV             *
+                * 6. Salir                    *
                 *******************************
                 *     ESCRIBE UNA OPCION:     *
                 *******************************\s
@@ -83,6 +84,12 @@ public class Menu {
                     gf.listarCoches(listaCoches);
                 }
                 case 5 -> {
+                    //Csv
+                    gf.exportarCSV(listaCoches);
+                    System.out.println("Lista de coches exportada a CSV");
+
+                }
+                case 6 ->{
                     System.out.println("GUARDANDO DATOS...");
                     gf.escribirDatos(listaCoches);
                     System.out.println("SALIENDO DEL PROGRAMA...");

@@ -28,6 +28,16 @@ public class GestionFichero {
                 while (true) {
                     try {
                         listaCoches = (ArrayList<Coche>) ois.readObject();
+                        //Tambien se aprobecha para revisar el valor final donde se quedo el ultimo
+                        //Valor del ID
+                        long maxId = 0L;
+                        for(Coche coche : listaCoches){
+                            if(coche.getId() > 0){
+                                maxId = coche.getId();
+                            }
+                        }
+                        Coche.inicializarContadorId((int)(maxId + 1));
+
                     } catch (EOFException e) { //END OF FILE
                         break;
                     }
@@ -90,6 +100,30 @@ public class GestionFichero {
             } catch (IOException e) {
                 System.out.println("Error al cerrar el flujo de datos.");
             }
+        }
+    }
+    public void exportarCSV (ArrayList<Coche> listaCoches) {
+        File archivoCSV = new File("src/main/resources/concesionario.csv");
+        PrintWriter escribirObjetos = null;
+        //Escribimos mediante PrintWriter --> FileWritter los valores del objeto Coche
+        //separados por ; para que lo pueda leer Excel(CSV) tambien y previo a esto escribimos
+        //una primera columna con los nombres de las tablas.
+        //Por ultimo cerramos el flujo y aseguramos que guarda el contenido.
+        if (archivoCSV.isFile() && archivoCSV.exists()){
+            try {
+                escribirObjetos = new PrintWriter(new FileWriter(archivoCSV));
+                escribirObjetos.println("Id;Matricula;Marca;Modelo;Color");
+                for (Coche coche : listaCoches){
+                    escribirObjetos.println(coche.getId() + ";" + coche.getMatricula() + ";" + coche.getMarca() + ";" +coche.getModelo() + ";" + coche.getColor());
+                }
+            } catch (IOException e) {
+                System.out.println("Error " + e.getMessage());
+            }finally{
+                if (escribirObjetos != null){
+                    escribirObjetos.close();}
+            }
+        }else{
+            System.out.println("Archivo no encontrado");
         }
     }
 }

@@ -17,20 +17,20 @@ public class Menu {
 
     private static void mostrarMenu() {
         System.out.println("""
-               \s
-                *******************************
-                *       CONCESIONARIO         *\s
-                *******************************
-                * 1. Agregar nuevo coche      *
-                * 2. Borrar coche por ID      *
-                * 3. Consultar coche por ID   *
-                * 4. Listado de coches        *
-                * 5. Exportar CSV             *
-                * 6. Salir                    *
-                *******************************
-                *     ESCRIBE UNA OPCION:     *
-                *******************************\s
-               \s""");
+                \s
+                 *******************************
+                 *       CONCESIONARIO         *\s
+                 *******************************
+                 * 1. Agregar nuevo coche      *
+                 * 2. Borrar coche por ID      *
+                 * 3. Consultar coche por ID   *
+                 * 4. Listado de coches        *
+                 * 5. Exportar CSV             *
+                 * 6. Salir                    *
+                 *******************************
+                 *     ESCRIBE UNA OPCION:     *
+                 *******************************\s
+                \s""");
     }
 
     private static boolean ejecutarOpcion(ArrayList<Coche> listaCoches, GestionFichero gf) {
@@ -89,7 +89,7 @@ public class Menu {
                     System.out.println("Lista de coches exportada a CSV");
 
                 }
-                case 6 ->{
+                case 6 -> {
                     System.out.println("GUARDANDO DATOS...");
                     gf.escribirDatos(listaCoches);
                     System.out.println("SALIENDO DEL PROGRAMA...");

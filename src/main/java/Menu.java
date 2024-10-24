@@ -116,6 +116,8 @@ public class Menu {
             }
         } catch (Exception e) {
             System.out.println("Introduce un número");
+        }finally {
+            sc.close();
         }
 
         return salir;

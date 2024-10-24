@@ -73,6 +73,9 @@ public class GestionFichero {
     }
 
     public boolean borrarId(ArrayList<Coche> listaCoches, long id) {
+        /*Introcucimos el ID del coche que queremos eliminar, si dicho id no esta en
+        *la lista, nos avisara.
+         */
         Coche c = this.buscarCocheId(listaCoches, id);
         if (c != null) {
             listaCoches.remove(c);
@@ -92,6 +95,7 @@ public class GestionFichero {
     }
 
     public void escribirDatos(ArrayList<Coche> listaCoches){
+        //Esta parte simplemente escribe en el File los Coches de la listaCoches
         ObjectOutputStream ous = null;
         try {
             ous = new ObjectOutputStream(new FileOutputStream(f));

@@ -11,8 +11,6 @@ import java.util.Random;
 public class Coche implements Serializable {
 
     private static final long serialVersionUID = 334455L;
-    private static long contadorMatricula = 0000L;
-
     private Long id;
     private String matricula;
 

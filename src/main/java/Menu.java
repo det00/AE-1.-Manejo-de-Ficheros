@@ -55,7 +55,22 @@ public class Menu {
                     String modelo = sc.nextLine();
                     System.out.println("Introduce color:");
                     String color = sc.nextLine();
+                    /*Para evitar que la MATRICULA sea una que ya existe lo comprobamos aqui,
+                    * En caso de que el progrma haya creado dos MATRICULAS iguales llamaremos
+                    *de nuevo al metodo que las crea y le pondremos una nueva.
+                    */
                     Coche c = new Coche(marca, modelo, color);
+                    boolean matriculaDuplicada ;
+                    do{
+                        matriculaDuplicada = false;
+                        for (Coche co : listaCoches){
+                            if (co.getMatricula().equals(c.getMatricula())){
+                                c.generadorMatricula();
+                                matriculaDuplicada = true;
+                                break;
+                            }
+                        }
+                    }while (matriculaDuplicada);
                     if (gf.crearCoche(listaCoches, c))
                         System.out.println("Se ha añadido a la lista: \n" + c);
                     else System.out.println("No se ha podido añadir el coche a la lista.");

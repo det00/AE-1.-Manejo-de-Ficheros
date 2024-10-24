@@ -28,8 +28,10 @@ public class GestionFichero {
                 while (true) {
                     try {
                         listaCoches = (ArrayList<Coche>) ois.readObject();
-                        //Tambien se aprobecha para revisar el valor final donde se quedo el ultimo
-                        //Valor del ID
+                        /*
+                        *Tambien se aprobecha para revisar el valor final donde se quedo el ultimo
+                        *Valor del ID
+                        */
                         long maxId = 0L;
                         for(Coche coche : listaCoches){
                             if(coche.getId() > 0){
@@ -55,7 +57,9 @@ public class GestionFichero {
         }
         return listaCoches; // Lista de coches que devuelve el metodo
     }
-
+    /*Sencillamente pedimos que introduzcan los datos necesarios
+    *Sin incluir ni la MATRIUCULA ni el ID pues esto lo hara el porgrma de manera automatica
+    */
     public boolean crearCoche(ArrayList<Coche> listaCoches, Coche coche) {
         return listaCoches.add(coche);
     }
@@ -105,10 +109,11 @@ public class GestionFichero {
     public void exportarCSV (ArrayList<Coche> listaCoches) {
         File archivoCSV = new File("src/main/resources/concesionario.csv");
         PrintWriter escribirObjetos = null;
-        //Escribimos mediante PrintWriter --> FileWritter los valores del objeto Coche
-        //separados por ; para que lo pueda leer Excel(CSV) tambien y previo a esto escribimos
-        //una primera columna con los nombres de las tablas.
-        //Por ultimo cerramos el flujo y aseguramos que guarda el contenido.
+        /*Escribimos mediante PrintWriter --> FileWritter los valores del objeto Coche
+        *separados por ; para que lo pueda leer Excel(CSV) tambien y previo a esto escribimos
+        *una primera columna con los nombres de las tablas.
+        *Por ultimo cerramos el flujo y aseguramos que guarda el contenido.
+         */
         if (archivoCSV.isFile() && archivoCSV.exists()){
             try {
                 escribirObjetos = new PrintWriter(new FileWriter(archivoCSV));

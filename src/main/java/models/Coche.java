@@ -27,12 +27,11 @@ public class Coche implements Serializable {
         this.modelo = modelo;
         this.color = color;
     }
-
-
-    //Para generar la matricula use Random al cual le puedes pedir que te genere un numero
-    //aleatorio, en el caso de numero matricula siempre sera de 1000 a 9999 y en el caso de letraAleatoria
-    //de 0 a 20, he creado un array con letras para exluir Ñ y las letras vocales.
-    //Finalmente mediante retornamos la mezcla como String de los numeros y letras.
+    /*Para generar la matricula use Random al cual le puedes pedir que te genere un numero
+    *aleatorio, en el caso de numero matricula siempre sera de 1000 a 9999 y en el caso de letraAleatoria
+    *de 0 a 20, he creado un array con letras para exluir Ñ y las letras vocales.
+    *Finalmente mediante retornamos la mezcla como String de los numeros y letras.
+     */
     public String generadorMatricula() {
         Random aleatorio = new Random();
         int numeroMatricula = aleatorio.nextInt(9999)+1000;
@@ -62,6 +61,8 @@ public class Coche implements Serializable {
                 "\n\tCOLOR: " + color +
                 "\n\tMATRICULA: " + matricula;
     }
+    //Contador es igual a MaxID que es el que verifica cual es el ultimo numero usado
+    //en el id.
     public static void inicializarContadorId(int maxId){
         contadorId=maxId;
     }

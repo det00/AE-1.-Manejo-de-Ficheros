@@ -32,7 +32,7 @@ public class Coche implements Serializable {
      */
     public String generadorMatricula() {
         Random aleatorio = new Random();
-        int numeroMatricula = aleatorio.nextInt(9999)+1000;
+        int numeroMatricula = aleatorio.nextInt(8999)+1000;
         StringBuilder trioDeLetras = new StringBuilder();
 
         char[] letrasSinVocales = new char[]{
